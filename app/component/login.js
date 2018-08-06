@@ -22,6 +22,7 @@ export default class Acount extends Component {
     AsyncStorage.multiSet([['islogin','false'],['username','']]);
     this.props.tranIslogin(false);
     this.setState({islogin:false});
+    this.props.navigation.navigate('Login');
     
   }
   login() { 

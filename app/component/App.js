@@ -52,7 +52,7 @@ export default class Helloworld extends Component {
       //     return a;
       //   }
       // })
-       fetch('http://192.168.20.231:3000/post/api/query', {
+       fetch('http://rap2api.taobao.org/app/mock/25109/login', {
         method: 'POST',
         body: JSON.stringify(datauser),
         headers: {
@@ -61,16 +61,9 @@ export default class Helloworld extends Component {
       }).then((res)=> {
         return res.json();
       }).then((txt)=>{
-        // this.refs.toast.show(txt,1000);
-        if (txt === 1) {
-            // this.refs.toast.show("登录成功",1000);
+        if (txt.login === 1) {
             this.props.navigation.navigate('Home',{islogined:true});
             AsyncStorage.multiSet([['islogin','true'],['username',user]]);
-            // this.setState({
-            //   islogin:true
-            // })
-            // this.props.navigation.goBack();
-            // this.props.navigation.state.params.callback({islogined:true});
           } else {
             this.refs.toast.show("账户 或 密码错误",1000);
           }
