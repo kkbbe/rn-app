@@ -3,6 +3,9 @@ import { Text, ScrollView, View, StyleSheet, AsyncStorage} from 'react-native';
 import { Button, TabBar, Toast} from 'antd-mobile-rn';
 import First from './first';
 import Acount from './login';
+import Message from './message';
+import Xueqiquan from './xuexiquan';
+import List from './list';
 
 export default class Main extends Component {
   constructor(props) {
@@ -51,7 +54,7 @@ export default class Main extends Component {
   }
 
   onChangeTab(tabName) {
-    if(tabName === 'loginTab') {
+    if(tabName !== 'firstTab') {
       if(this.state.islogin === false) {
         this.props.navigation.navigate('Login');
       }
@@ -72,40 +75,42 @@ export default class Main extends Component {
         >
           <TabBar.Item 
             title="首页"
-            icon={require('../img/user.png')}
+            icon={require('../img/home.png')}
             selected={this.state.selectTab === 'firstTab'}
             onPress={() => this.onChangeTab('firstTab')}
             iconStyle={{ width: 22, height: 22 }}
           >
-          <First/>
+          <First navigate={this.props.navigation.navigate}/>
           </TabBar.Item>
           <TabBar.Item 
             title="消息"
-            icon={require('../img/user.png')}
+            icon={require('../img/message.png')}
             selected={this.state.selectTab === 'secondTab'}
             onPress={() => this.onChangeTab('secondTab')}
             iconStyle={{ width: 22, height: 22 }}
           >
+          <Message navigate={this.props.navigation.navigate}/>
           </TabBar.Item>
           <TabBar.Item 
             title="学习圈"
-            icon={require('../img/user.png')}
+            icon={require('../img/quanzi.png')}
             selected={this.state.selectTab === 'thirdTab'}
             onPress={() => this.onChangeTab('thirdTab')}
             iconStyle={{ width: 22, height: 22 }}
           >
+          <Xueqiquan navigate={this.props.navigation.navigate}/>
           </TabBar.Item>
           <TabBar.Item 
             title="通讯录"
-            icon={require('../img/user.png')}
+            icon={require('../img/address.png')}
             selected={this.state.selectTab === 'forthTab'}
             onPress={() => this.onChangeTab('forthTab')}
             iconStyle={{ width: 22, height: 22 }}
-          >
+          ><List/>
           </TabBar.Item>
           <TabBar.Item 
             title="我的"
-            icon={require('../img/user.png')}
+            icon={require('../img/my.png')}
             selected={this.state.selectTab === 'loginTab'}
             onPress={() => this.onChangeTab('loginTab')}
             iconStyle={{ width: 22, height: 22 }}

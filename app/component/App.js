@@ -44,14 +44,6 @@ export default class Helloworld extends Component {
         name: user,
         password: password
       };
-      // mock('http://192.168.20.231:3000/post/api/query','post',function(options){
-      //   let data = decodeURIComponent(options.body);
-      //   let res = JSON.parse(data);
-      //   let a = 1;
-      //   if(arruser[0].name === res.name && arruser[0].password === res.password){
-      //     return a;
-      //   }
-      // })
        fetch('http://rap2api.taobao.org/app/mock/25109/login', {
         method: 'POST',
         body: JSON.stringify(datauser),
